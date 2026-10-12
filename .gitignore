@@ -1,0 +1,22 @@
+# Dependencias y artefactos generados
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Variables de entorno: mantener solo la plantilla de ejemplo
+.env
+.env.*
+!.env.example
+
+# Registros y archivos temporales
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+.vite/
+
+# Despliegues locales y archivos del sistema
+.vercel/
+.DS_Store
+Thumbs.db
