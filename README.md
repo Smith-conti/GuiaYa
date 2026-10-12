@@ -1,28 +1,40 @@
 # GuiaYa
 
-Landing informativa para descubrir destinos, paisajes y cultura de Cusco y Machu Picchu. Incluye un asistente conversacional flotante de Chatbase.
+Landing informativa para descubrir destinos, paisajes y cultura de Cusco y Machu Picchu. Está construida con React, TypeScript y Vite, e incluye un widget flotante de Chatbase para consultas conversacionales.
 
-> Esta página tiene únicamente fines educativos e informativos. El asistente virtual utiliza inteligencia artificial; verifica la información importante antes de viajar.
+## Sitio publicado
+
+[Visita GuiaYa](https://guia-ya.vercel.app/)
+
+> **Aviso:** esta página tiene únicamente fines educativos e informativos. El asistente virtual utiliza inteligencia artificial y puede equivocarse; verifica información importante para tu viaje con fuentes oficiales.
+
+## Funcionalidades
+
+- Diseño responsive para móviles, tablets y escritorio.
+- Navegación por secciones: inicio, destinos y contenido informativo sobre Cusco.
+- Tema claro y oscuro, con preferencia guardada en el navegador.
+- Widget flotante de Chatbase.
+- Metadatos para buscadores y redes sociales, favicon y año del footer actualizado automáticamente.
 
 ## Tecnologías
 
 - React y TypeScript
 - Vite
-- Tailwind CSS
+- Tailwind CSS y CSS personalizado
 - Lucide React
-- Chatbase Embed para el widget flotante
+- Chatbase Embed
 
 ## Requisitos
 
-- Node.js compatible con la versión de Vite instalada
+- Node.js `^20.19.0` o `>=22.12.0`
 - npm
 
-## Ejecutar localmente
+## Instalación y desarrollo
 
-Instala las dependencias:
+Clona el repositorio, entra en la carpeta del proyecto e instala las dependencias:
 
 ```bash
-npm install
+npm ci
 ```
 
 Inicia el servidor de desarrollo:
@@ -31,17 +43,17 @@ Inicia el servidor de desarrollo:
 npm run dev
 ```
 
-Vite mostrará en la terminal la dirección local para abrir el sitio.
+Vite mostrará la dirección local en la terminal. Usa `Ctrl+C` para detener el servidor.
 
-## Compilar y previsualizar
+## Compilación
 
-Genera la versión de producción:
+Verifica TypeScript y crea la versión de producción:
 
 ```bash
 npm run build
 ```
 
-Los archivos listos para publicar quedan en `dist/`. Para previsualizar esa compilación localmente:
+Los archivos compilados se guardan en `dist/`. Para previsualizarlos localmente:
 
 ```bash
 npm run preview
@@ -49,28 +61,30 @@ npm run preview
 
 ## Despliegue en Vercel
 
-Importa el repositorio en Vercel y usa esta configuración:
+Puedes importar el repositorio en Vercel o desplegarlo desde la CLI de Vercel. Configuración del proyecto:
 
-- **Framework preset:** Vite
-- **Build command:** `npm run build`
-- **Output directory:** `dist`
-- **Install command:** `npm install`
+| Opción | Valor |
+| --- | --- |
+| Framework preset | Vite |
+| Install command | `npm ci` |
+| Build command | `npm run build` |
+| Output directory | `dist` |
 
-La landing no necesita variables de entorno. El widget de Chatbase carga su script desde `www.chatbase.co` en el navegador.
+No se requieren variables de entorno para compilar la landing. El widget de Chatbase y algunas fotografías se cargan desde servicios externos, por lo que requieren conexión a internet en el navegador.
 
-## Estructura principal
+## Estructura del proyecto
 
 ```text
 src/
-  components/   Secciones y componentes de la interfaz
-  data/         Contenido de destinos
-  hooks/        Preferencias de tema
-  App.tsx       Composición de la página
-  index.css     Estilos, temas y diseño responsive
-index.html      Metadatos y carga del widget de Chatbase
-public/         Favicon y recursos estáticos
+├── components/       Componentes de navegación, destinos y secciones
+├── data/             Contenido de las tarjetas de destinos
+├── hooks/            Preferencias de tema
+├── App.tsx           Composición de la landing
+└── index.css         Estilos, paleta y breakpoints responsive
+index.html            Metadatos y script del widget Chatbase
+public/               Favicon y recursos estáticos
 ```
 
-## Tema
+## Temas
 
-El sitio detecta la preferencia del sistema operativo en la primera visita y permite alternar entre modo claro y oscuro. La selección se guarda en `localStorage`.
+La primera visita respeta la preferencia de color del sistema operativo. El usuario puede cambiar entre modo claro y oscuro; la selección se conserva en `localStorage`.
